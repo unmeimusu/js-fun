@@ -179,5 +179,23 @@ print(factorial(5))</code></pre>
         setInterval(timerFunc, 1);
         </script>
       </div>
+      <div>
+        <h1>6th</h1>
+
+        <!--6.1-->
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <style>
+          .dark-mode {
+            background-color: black;
+            color: white;
+          }
+        </style>
+        <script>
+          function toggleDarkMode() {
+            var body = document.body;
+            body.classList.toggle("dark-mode");
+          }
+          </script>
+      </div>
   </body>
 </html>
