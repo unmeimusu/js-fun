@@ -134,5 +134,36 @@ print(factorial(5))</code></pre>
             }
         </script>
       </div>
+
+      <div>
+        <h1>4rd</h1>
+  
+        <!--4.1-->
+        <p>The current value is: <span id="value">0</span></p>
+        <button id="increment">Increment</button>
+        <button id="decrement">Decrement</button>
+        </div>
+        <script>
+        const value = document.getElementById("value");
+        const incrementButton = document.getElementById("increment");
+        const decrementButton = document.getElementById("decrement");
+        
+        // Increment the value by 1 when the increment button is clicked
+        incrementButton.addEventListener("click", () => {
+          value.innerHTML = parseInt(value.innerHTML) + 1;
+        });
+        
+        // Decrement the value by 1 when the decrement button is clicked
+        decrementButton.addEventListener("click", () => {
+          value.innerHTML = parseInt(value.innerHTML) - 1;
+        });
+        </script>
+      </div>
+      <div>
+        <h1>5th</h1>
+
+        <!--5.1-->
+        
+      </div>
   </body>
 </html>
