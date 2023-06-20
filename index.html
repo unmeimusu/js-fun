@@ -4,22 +4,82 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <div>
-            
-        </div>
-        <script src="./app.js"></script>
-        <script src="" async defer></script>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>JS Fun</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div>
+      <h1>1st</h1>
+      <!--1.1-->
+      <input type="text" id="input1" onkeydown="showKeyPressedKey()" />
+      <output id="output1"></output>
+      <script>
+        function showKeyPressedKey() {
+          var key = event.key;
+          document.getElementById("output1").innerHTML = key;
+        }
+      </script>
+      <!--1.2-->
+      <input type="text" id="input2" onkeyup="showAllTextInput1()" />
+      <output id="output2"></output>
+      <script>
+        function showAllTextInput1() {
+          var text = document.getElementById("input2").value;
+          document.getElementById("output2").innerHTML = text;
+        }
+
+        // This code will make the text displayed faster
+        var interval = setInterval(function () {
+          showAllTextInput1();
+        }, 10);
+
+        // This code will clear the interval when the user clicks on the input form
+        document.getElementById("input2").onclick = function () {
+          clearInterval(interval);
+        };
+      </script>
+      <!--1.3-->
+      <input type="text" id="input3" oninput="showAllTextInput2()" />
+      <output id="output3"></output>
+      <script>
+        function showAllTextInput2() {
+          var text = document.getElementById("input3").value;
+          document.getElementById("output3").innerHTML = text;
+        }
+      </script>
+      <!--1.4-->
+      <input type="text" id="input4" />
+      <button id="inputBtn">Input</button>
+      <output id="output4"></output>
+      <script>
+        function showAllTextInput() {
+          var text = document.getElementById("input4").value;
+          document.getElementById("output4").innerHTML = text;
+        }
+
+        document
+          .getElementById("input4")
+          .addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+              showAllTextInput();
+            }
+          });
+
+        document.getElementById("inputBtn").onclick = function () {
+          showAllTextInput();
+        };
+      </script>
+    </div>
+  </body>
 </html>
