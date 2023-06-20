@@ -163,7 +163,21 @@ print(factorial(5))</code></pre>
         <h1>5th</h1>
 
         <!--5.1-->
+        <p>The countdown timer is: <span id="timer"></span></p>
+        </div>
+        <script>
+        const container = document.getElementById("container");
+        const timer = document.getElementById("timer");
+        var timeDiff = 0;
+        // Create a timer function that updates the countdown timer every millisecond
+        const timerFunc = () => {
+          timer.innerHTML = timeDiff;
+          timeDiff++;
+        };
         
+        // Start the countdown timer after the DOM is loaded
+        setInterval(timerFunc, 1);
+        </script>
       </div>
   </body>
 </html>
