@@ -1,2 +1,2 @@
 # js-fun
-JS In Functionality
+JavaScript In Functionality
