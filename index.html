@@ -183,19 +183,25 @@ print(factorial(5))</code></pre>
         <h1>6th</h1>
 
         <!--6.1-->
-        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-        <style>
-          .dark-mode {
-            background-color: black;
-            color: white;
-          }
-        </style>
-        <script>
-          function toggleDarkMode() {
-            var body = document.body;
-            body.classList.toggle("dark-mode");
-          }
-          </script>
+        <button id="btn-mod" onclick="noDark ? toDark() : toLight()">Dark Mode</button>
+      </body>
+      <script>
+        var noDark = true
+
+        function toDark() {
+          document.body.style.backgroundColor = "black"
+          document.body.style.color = "white"
+          noDark = !noDark
+          document.getElementById("btn-mod").innerText = "Light Mode"
+        }
+
+        function toLight() {
+          document.body.style.backgroundColor = "white"
+          document.body.style.color = "black"
+          noDark = !noDark
+          document.getElementById("btn-mod").innerText = "Dark Mode"
+        }
+      </script>
       </div>
   </body>
 </html>
