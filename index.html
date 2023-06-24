@@ -279,7 +279,7 @@ print(factorial(5))</code></pre>
             const descendingButton2 = document.createElement("button");
             descendingButton2.textContent = "Descending by date";
             descendingButton2.addEventListener("click", () => {
-              Data.sort((a, b) => Date.parse(b.name) - Date.parse(a.name));
+              Data.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
               const out6 = document.getElementById("out6");
               out6.innerHTML = Data.map(item => `
                 <p id="item-${item.id}">
