@@ -205,7 +205,7 @@ print(factorial(5))</code></pre>
       <div>
         <h1>7th</h1>
 
-        <!--6.1-->
+        <!--7.1-->
         <div>
           <div id="btns"></div>
           <div id="out6"></div>
@@ -295,14 +295,85 @@ print(factorial(5))</code></pre>
           </script>
       </div>
       <div>
-        <h1>7th</h1>
+        <h1>8th</h1>
 
-        <!--7.1-->
+        <!--8.1-->
         <div>
-
+          <input type="text" id="search" placeholder="Search...">
+          <button id="searchButton">Search</button>
         </div>
+        <div id="data"></div>
         <script>
-
+          let Data2 = [
+            {
+              id: 1,
+              name: "A",
+              desc: "Hello I'm from data number one.",
+              date: "2023-06-22T02:12:00"
+            },
+            {
+              id: 2,
+              name: "B",
+              desc: "Hello I'm from data number two.",
+              date: "2023-06-22T04:57:00Z"
+            }
+          ];
+        
+          let searchInput = document.getElementById("search");
+          let searchButton = document.getElementById("searchButton");
+          let dataElement = document.getElementById("data");
+        
+          searchInput.addEventListener("keydown", function(event) {
+            if (event.keyCode === 13) {
+              let searchTerm = searchInput.value.toLowerCase();
+              let filteredData = Data2.filter(function(data) {
+                return data.name.toLowerCase().includes(searchTerm) ||
+                  data.id.toString().toLowerCase().includes(searchTerm) ||
+                  data.desc.toLowerCase().includes(searchTerm) ||
+                  data.date.toLowerCase().includes(searchTerm);
+              });
+        
+              dataElement.innerHTML = "";
+              filteredData.forEach(function(data) {
+                let li = document.createElement("li");
+                li.innerHTML = `
+                  <strong>ID:</strong> ${data.id}
+                  <br>
+                  <strong>Name:</strong> ${data.name}
+                  <br>
+                  <strong>Description:</strong> ${data.desc}
+                  <br>
+                  <strong>Date:</strong> ${data.date}
+                `;
+                dataElement.appendChild(li);
+              });
+            }
+          });
+        
+          searchButton.addEventListener("click", function() {
+            let searchTerm = searchInput.value.toLowerCase();
+            let filteredData = Data2.filter(function(data) {
+              return data.name.toLowerCase().includes(searchTerm) ||
+                data.id.toString().toLowerCase().includes(searchTerm) ||
+                data.desc.toLowerCase().includes(searchTerm) ||
+                data.date.toLowerCase().includes(searchTerm);
+            });
+        
+            dataElement.innerHTML = "";
+            filteredData.forEach(function(data) {
+              let li = document.createElement("li");
+              li.innerHTML = `
+                <strong>ID:</strong> ${data.id}
+                <br>
+                <strong>Name:</strong> ${data.name}
+                <br>
+                <strong>Description:</strong> ${data.desc}
+                <br>
+                <strong>Date:</strong> ${data.date}
+              `;
+              dataElement.appendChild(li);
+            });
+          });
         </script>
       </div>
   </body>
