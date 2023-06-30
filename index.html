@@ -534,5 +534,61 @@ print(factorial(5))</code></pre>
           }
           out12.appendChild(buttons);
       </script>
+      </div>
+      <div>
+        <!--11.2-->
+        <script>
+          const data3 = [{
+  "id": 1,
+  "nam": "A",
+  "lab": ["A", "B"]
+}, {
+  "id": 2,
+  "nam": "B",
+  "lab": ["A", "C"]
+}];
+
+const uniqueStrings3 = [];
+
+for (let i = 0; i < data3.length; i++) {
+  for (let j = 0; j < data3[i].lab.length; j++) {
+    if (!uniqueStrings3.includes(data3[i].lab[j])) {
+      uniqueStrings3.push(data3[i].lab[j]);
+    }
+  }
+}
+
+const buttons3 = document.querySelector("div");
+
+let currentList = document.createElement("ul");
+
+for (let string of uniqueStrings3) {
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.value = string;
+  checkbox.addEventListener("click", () => {
+    currentList.innerHTML = "";
+    const filteredData = data3.filter((item) => {
+      for (let checkedString of buttons3.querySelectorAll("input[type='checkbox']:checked")) {
+        if (item.lab.includes(checkedString.value)) {
+          return true;
+        }
+      }
+      return false;
+    });
+
+    for (let item of filteredData) {
+      currentList.innerHTML += `<li>${item.nam}</li>`;
+    }
+
+    buttons3.replaceChild(currentList, buttons3.firstChild);
+  });
+
+  buttons3.appendChild(checkbox);
+}
+
+document.getElementById("out12").appendChild(buttons3);
+        </script>
+      </div>
   </body>
 </html>
