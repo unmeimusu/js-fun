@@ -379,6 +379,7 @@ print(factorial(5))</code></pre>
       <div>
         <h1>9th</h1>
         <!--9.1-->
+        <div id="lis"></div>
         <script>
           let data = [{
             "id": 1,
@@ -395,8 +396,75 @@ print(factorial(5))</code></pre>
           let ul = document.createElement("ul");
           ul.innerHTML = uniqueStrings.map(str => `<li>${str}</li>`).join("");
 
-          document.body.appendChild(ul);
+          document.getElementById("lis").appendChild(ul);
         </script>
+      </div>
+      <div>
+        <h1>10th</h1>
+        <!--10.1-->
+        <input type="number" min="1" max="10" id="inputNumber">
+        <input type="range" min="1" max="10" id="inputRange">
+        <p id="out8"></p>
+        
+        <script>
+          const inputNumber = document.getElementById("inputNumber");
+          const inputRange = document.getElementById("inputRange");
+          const output = document.getElementById("out8");
+        
+          inputNumber.addEventListener("input", updateValue);
+          inputRange.addEventListener("input", updateValue);
+        
+          function updateValue() {
+            const value = inputNumber.value || inputRange.value;
+            inputNumber.value = value;
+            output.textContent = value;
+          }
+        
+          inputNumber.addEventListener("change", () => {
+            inputRange.value = inputNumber.value;
+            output.textContent = inputNumber.value;
+          });
+        
+          inputRange.addEventListener("input", () => {
+            inputNumber.value = inputRange.value;
+            output.textContent = inputRange.value;
+          });
+        </script>
+        <!--10.2-->
+        <input type="range" min="0" max="100" id="inputRange2">
+        <input type="number" min="0" id="inputMin" placeholder="Min Value">
+        <input type="number" min="0" id="inputMax" placeholder="Max Value">
+        
+        <script>
+          const inputRange2 = document.getElementById("inputRange2");
+          const inputMin = document.getElementById("inputMin");
+          const inputMax = document.getElementById("inputMax");
+        
+          inputMin.addEventListener("input", updateValues);
+          inputMax.addEventListener("input", updateValues);
+        
+          function updateValues() {
+            const minValue = parseInt(inputMin.value) || 0;
+            const maxValue = parseInt(inputMax.value) || 0;
+        
+            inputRange2.min = minValue;
+            inputRange2.max = maxValue;
+        
+            if (inputRange2.value < minValue) {
+              inputRange2.value = minValue;
+            }
+        
+            if (inputRange2.value > maxValue) {
+              inputRange2.value = maxValue;
+            }
+          }
+        
+          inputRange2.addEventListener("input", () => {
+            inputMin.value = inputRange2.min;
+            inputMax.value = inputRange2.max;
+          });
+        </script>
+        
       </div>
   </body>
 </html>
