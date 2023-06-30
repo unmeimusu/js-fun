@@ -376,5 +376,27 @@ print(factorial(5))</code></pre>
           });
         </script>
       </div>
+      <div>
+        <h1>9th</h1>
+        <!--9.1-->
+        <script>
+          let data = [{
+            "id": 1,
+            "nam": "A",
+            "lab": ["A", "B"]
+          }, {
+            "id": 2,
+            "nam": "B",
+            "lab": ["A", "C"]
+          }];
+
+          let uniqueStrings = [...new Set(data.flatMap(obj => obj.lab))];
+
+          let ul = document.createElement("ul");
+          ul.innerHTML = uniqueStrings.map(str => `<li>${str}</li>`).join("");
+
+          document.body.appendChild(ul);
+        </script>
+      </div>
   </body>
 </html>
