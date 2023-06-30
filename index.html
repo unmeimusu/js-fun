@@ -402,6 +402,21 @@ print(factorial(5))</code></pre>
       <div>
         <h1>10th</h1>
         <!--10.1-->
+        <input type="number" min="1" max="10" id="inputNumber0">
+        <p id="out11"></p>
+        
+        <script>
+        const inputNumber0 = document.getElementById("inputNumber0");
+        const output0 = document.getElementById("out11");
+        
+        inputNumber0.addEventListener("input", updateValue1);
+        
+        function updateValue1() {
+          const value1 = inputNumber0.value;
+          output0.innerHTML = value1;
+        }
+        </script>
+        <!--10.2-->
         <input type="number" min="1" max="10" id="inputNumber">
         <input type="range" min="1" max="10" id="inputRange">
         <p id="out8"></p>
@@ -430,7 +445,7 @@ print(factorial(5))</code></pre>
             output.textContent = inputRange.value;
           });
         </script>
-        <!--10.2-->
+        <!--10.3-->
         <input type="range" min="0" max="100" id="inputRange2">
         <input type="number" min="0" id="inputMin" placeholder="Min Value">
         <input type="number" min="0" id="inputMax" placeholder="Max Value">
@@ -465,12 +480,60 @@ print(factorial(5))</code></pre>
           });
         </script>
       </div>
+      <div>
+        <h1>11th</h1>
+        <!--11.1-->
+        <div id="out12"></div>
+        <script>
+          const data2 = [
+            {
+              "id": 1,
+              "nam": "A",
+              "lab": ["A", "B"]
+            },
+            {
+              "id": 2,
+              "nam": "B",
+              "lab": ["A", "C"]
+            }
+          ];
+        
+          const uniqueStrings2 = [];
+        
+          for (let i = 0; i < data2.length; i++) {
+            for (let j = 0; j < data2[i].lab.length; j++) {
+              if (!uniqueStrings2.includes(data2[i].lab[j])) {
+                uniqueStrings2.push(data2[i].lab[j]);
+              }
+            }
+          }
+        
+          const out12 = document.getElementById("out12");
+          const buttons = document.createElement("div");
+        
+          for (let string of uniqueStrings2) {
+            const button = document.createElement("button");
+            button.innerHTML = string;
+            button.addEventListener("click", () => {
+              const filteredData = data2.filter((item) => item.lab.includes(string));
+              let list = document.createElement("ul");
+              for (let item of filteredData) {
+                const listItem = document.createElement("li");
+                listItem.textContent = item.nam;
+                list.appendChild(listItem);
+              }
+              const existingList = out12.querySelector("ul");
+              if (existingList) {
+                out12.replaceChild(list, existingList);
+              } else {
+                out12.appendChild(list);
+              }
+            });
+        
+            buttons.appendChild(button);
+          }
+        
+          out12.appendChild(buttons);
+      </script>
   </body>
-  <div>
-    <h1>11th</h1>
-    <div></div>
-    <script>
-      
-    </script>
-  </div>
 </html>
