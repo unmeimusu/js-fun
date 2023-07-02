@@ -4,339 +4,340 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>JS Fun</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
 
-  <body>
-    <!--[if lt IE 7]>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>JS Fun</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <!--[if lt IE 7]>
       <p class="browsehappy">
         You are using an <strong>outdated</strong> browser. Please
         <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <div>
-      <h1>1st</h1>
+  <div>
+    <h1>1st</h1>
 
-      <!--1.1-->
-      <input type="text" id="input1" onkeydown="showKeyPressedKey()" />
-      <output id="output1"></output>
-      <script>
-        function showKeyPressedKey() {
-          var key = event.key;
-          document.getElementById("output1").innerText = key;
-        }
-      </script>
+    <!--1.1-->
+    <input type="text" id="input1" onkeydown="showKeyPressedKey()" />
+    <output id="output1"></output>
+    <script>
+      function showKeyPressedKey() {
+        var key = event.key;
+        document.getElementById("output1").innerText = key;
+      }
+    </script>
 
-      <!--1.2-->
-      <input type="text" id="input2" onkeyup="showAllTextInput1()" />
-      <output id="output2"></output>
-      <script>
-        function showAllTextInput1() {
-          var text = document.getElementById("input2").value;
-          document.getElementById("output2").innerText = text;
-        }
-        // This code will make the text displayed faster
-        var interval = setInterval(function () {
-          showAllTextInput1();
-        }, 10);
-        // This code will clear the interval when the user clicks on the input form
-        document.getElementById("input2").onclick = function () {
-          clearInterval(interval);
-        };
-      </script>
+    <!--1.2-->
+    <input type="text" id="input2" onkeyup="showAllTextInput1()" />
+    <output id="output2"></output>
+    <script>
+      function showAllTextInput1() {
+        var text = document.getElementById("input2").value;
+        document.getElementById("output2").innerText = text;
+      }
+      // This code will make the text displayed faster
+      var interval = setInterval(function () {
+        showAllTextInput1();
+      }, 10);
+      // This code will clear the interval when the user clicks on the input form
+      document.getElementById("input2").onclick = function () {
+        clearInterval(interval);
+      };
+    </script>
 
-      <!--1.3-->
-      <input type="text" id="input3" oninput="showAllTextInput2()" />
-      <output id="output3"></output>
-      <script>
-        function showAllTextInput2() {
-          var text = document.getElementById("input3").value;
-          document.getElementById("output3").innerText = text;
-        }
-      </script>
+    <!--1.3-->
+    <input type="text" id="input3" oninput="showAllTextInput2()" />
+    <output id="output3"></output>
+    <script>
+      function showAllTextInput2() {
+        var text = document.getElementById("input3").value;
+        document.getElementById("output3").innerText = text;
+      }
+    </script>
 
-      <!--1.4-->
-      <input type="text" id="input4" />
-      <button id="inputBtn">Input</button>
-      <output id="output4"></output>
-      <script>
-        function showAllTextInput() {
-          var text = document.getElementById("input4").value;
-          document.getElementById("output4").innerText = text;
-        }
+    <!--1.4-->
+    <input type="text" id="input4" />
+    <button id="inputBtn">Input</button>
+    <output id="output4"></output>
+    <script>
+      function showAllTextInput() {
+        var text = document.getElementById("input4").value;
+        document.getElementById("output4").innerText = text;
+      }
 
-        document
-          .getElementById("input4")
-          .addEventListener("keyup", function (event) {
-            if (event.keyCode === 13) {
-              showAllTextInput();
-            }
-          });
+      document
+        .getElementById("input4")
+        .addEventListener("keyup", function (event) {
+          if (event.keyCode === 13) {
+            showAllTextInput();
+          }
+        });
 
-        document.getElementById("inputBtn").onclick = function () {
-          showAllTextInput();
-        };
-      </script>
-    </div>
-    <div>
-      <h1>2nd</h1>
+      document.getElementById("inputBtn").onclick = function () {
+        showAllTextInput();
+      };
+    </script>
+  </div>
+  <div>
+    <h1>2nd</h1>
 
-      <!--2.1-->
-      <pre><code id="cod1" class="language-python">def factorial(n):
+    <!--2.1-->
+    <pre><code id="cod1" class="language-python">def factorial(n):
     if n == 0:
         return 1
     else:
         return n * factorial(n - 1)
       
 print(factorial(5))</code></pre>
-      <button id="copy-code" onclick="copyCode()">Copy Code</button>
-      <script>
+    <button id="copy-code" onclick="copyCode()">Copy Code</button>
+    <script>
       function copyCode() {
         const code = document.querySelector("#cod1").textContent;
         navigator.clipboard.writeText(code);
       }
+    </script>
+  </div>
+  <div>
+    <h1>3rd</h1>
+
+    <!--3.1-->
+    <div id="tabs">
+      <button id="tab1" onclick="showTab('tab1')">Tab 1</button>
+      <button id="tab2" onclick="showTab('tab2')">Tab 2</button>
+    </div>
+    <div style="display: block;" id="tab1Content">
+      This is the content for tab 1.
+    </div>
+    <div style="display: none;" id="tab2Content">
+      This is the content for tab 2.
+    </div>
+    <script>
+      function showTab(tabId) {
+        var tab1 = document.getElementById("tab1");
+        var tab2 = document.getElementById("tab2");
+        var tab1Content = document.getElementById("tab1Content");
+        var tab2Content = document.getElementById("tab2Content");
+
+        tab1.classList.remove("active");
+        tab2.classList.remove("active");
+
+        tab1Content.style.display = "none";
+        tab2Content.style.display = "none";
+
+        document.getElementById(tabId).classList.add("active");
+        document.getElementById(tabId + "Content").style.display = "block";
+      }
+    </script>
+  </div>
+
+  <div>
+    <h1>4rd</h1>
+
+    <!--4.1-->
+    <p>The current value is: <span id="value">0</span></p>
+    <button id="increment">Increment</button>
+    <button id="decrement">Decrement</button>
+  </div>
+  <script>
+    const value = document.getElementById("value");
+    const incrementButton = document.getElementById("increment");
+    const decrementButton = document.getElementById("decrement");
+
+    // Increment the value by 1 when the increment button is clicked
+    incrementButton.addEventListener("click", () => {
+      value.innerHTML = parseInt(value.innerHTML) + 1;
+    });
+
+    // Decrement the value by 1 when the decrement button is clicked
+    decrementButton.addEventListener("click", () => {
+      value.innerHTML = parseInt(value.innerHTML) - 1;
+    });
+  </script>
+  </div>
+  <div>
+    <h1>5th</h1>
+
+    <!--5.1-->
+    <p>The countdown timer is: <span id="timer"></span></p>
+  </div>
+  <script>
+    const container = document.getElementById("container");
+    const timer = document.getElementById("timer");
+    var timeDiff = 0;
+    // Create a timer function that updates the countdown timer every millisecond
+    const timerFunc = () => {
+      timer.innerHTML = timeDiff;
+      timeDiff++;
+    };
+
+    // Start the countdown timer after the DOM is loaded
+    setInterval(timerFunc, 1);
+  </script>
+  </div>
+  <div>
+    <h1>6th</h1>
+
+    <!--6.1-->
+    <button id="btn-mod" onclick="noDark ? toDark() : toLight()">Dark Mode</button>
+    <script>
+      var noDark = true
+
+      function toDark() {
+        document.body.style.backgroundColor = "black"
+        document.body.style.color = "white"
+        noDark = !noDark
+        document.getElementById("btn-mod").innerText = "Light Mode"
+      }
+
+      function toLight() {
+        document.body.style.backgroundColor = "white"
+        document.body.style.color = "black"
+        noDark = !noDark
+        document.getElementById("btn-mod").innerText = "Dark Mode"
+      }
+    </script>
+  </div>
+  <div>
+    <h1>7th</h1>
+
+    <!--7.1-->
+    <div>
+      <div id="btns"></div>
+      <div id="out6"></div>
+      <script>
+        let Data = [
+          {
+            id: 1,
+            name: "A",
+            desc: "Hello I'm from data number one.",
+            date: "2023-06-22T02:12:00"
+          },
+          {
+            id: 2,
+            name: "B",
+            desc: "Hello I'm from data number two.",
+            date: "2023-06-22T04:57:00Z"
+          }
+        ];
+
+        const ascendingButton1 = document.createElement("button");
+        ascendingButton1.textContent = "Ascending by name";
+        ascendingButton1.addEventListener("click", () => {
+          Data.sort((a, b) => a.id - b.id);
+          const div = document.getElementById("out6");
+          div.innerHTML = Data.map(item => `
+                <p id="item-${item.id}">
+                  id : ${item.id}
+                  name: ${item.name}
+                  description: ${item.desc}
+                  date : ${new Date(item.date)}
+                </p>
+              `).join("");
+        });
+
+        document.getElementById("btns").appendChild(ascendingButton1);
+
+        const descendingButton1 = document.createElement("button");
+        descendingButton1.textContent = "Descending by name";
+        descendingButton1.addEventListener("click", () => {
+          Data.sort((a, b) => b.id - a.id);
+          const out6 = document.getElementById("out6");
+          out6.innerHTML = Data.map(item => `
+                <p id="item-${item.id}">
+                  id : ${item.id}
+                  name: ${item.name}
+                  description: ${item.desc}
+                  date : ${new Date(item.date)}
+                </p>
+              `).join("");
+        });
+
+        document.getElementById("btns").appendChild(descendingButton1);
+
+        const ascendingButton2 = document.createElement("button");
+        ascendingButton2.textContent = "Ascending by date";
+        ascendingButton2.addEventListener("click", () => {
+          Data.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
+          const div = document.getElementById("out6");
+          div.innerHTML = Data.map(item => `
+                <p id="item-${item.id}">
+                  id : ${item.id}
+                  name: ${item.name}
+                  description: ${item.desc}
+                  date : ${new Date(item.date)}
+                </p>
+              `).join("");
+        });
+
+        document.getElementById("btns").appendChild(ascendingButton2);
+
+        const descendingButton2 = document.createElement("button");
+        descendingButton2.textContent = "Descending by date";
+        descendingButton2.addEventListener("click", () => {
+          Data.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+          const out6 = document.getElementById("out6");
+          out6.innerHTML = Data.map(item => `
+                <p id="item-${item.id}">
+                  id : ${item.id}
+                  name: ${item.name}
+                  description: ${item.desc}
+                  date : ${new Date(item.date)}
+                </p>
+              `).join("");
+        });
+
+        document.getElementById("btns").appendChild(descendingButton2);
       </script>
     </div>
     <div>
-        <h1>3rd</h1>
-  
-        <!--3.1-->
-        <div id="tabs">
-            <button id="tab1" onclick="showTab('tab1')">Tab 1</button>
-            <button id="tab2" onclick="showTab('tab2')">Tab 2</button>
-        </div>
-        <div style="display: block;" id="tab1Content">
-            This is the content for tab 1.
-        </div>
-        <div style="display: none;" id="tab2Content">
-            This is the content for tab 2.
-        </div>
-        <script>
-            function showTab(tabId) {
-                var tab1 = document.getElementById("tab1");
-                var tab2 = document.getElementById("tab2");
-                var tab1Content = document.getElementById("tab1Content");
-                var tab2Content = document.getElementById("tab2Content");
+      <h1>8th</h1>
 
-                tab1.classList.remove("active");
-                tab2.classList.remove("active");
-
-                tab1Content.style.display = "none";
-                tab2Content.style.display = "none";
-
-                document.getElementById(tabId).classList.add("active");
-                document.getElementById(tabId + "Content").style.display = "block";
-            }
-        </script>
-      </div>
-
+      <!--8.1-->
       <div>
-        <h1>4rd</h1>
-  
-        <!--4.1-->
-        <p>The current value is: <span id="value">0</span></p>
-        <button id="increment">Increment</button>
-        <button id="decrement">Decrement</button>
-        </div>
-        <script>
-        const value = document.getElementById("value");
-        const incrementButton = document.getElementById("increment");
-        const decrementButton = document.getElementById("decrement");
-        
-        // Increment the value by 1 when the increment button is clicked
-        incrementButton.addEventListener("click", () => {
-          value.innerHTML = parseInt(value.innerHTML) + 1;
-        });
-        
-        // Decrement the value by 1 when the decrement button is clicked
-        decrementButton.addEventListener("click", () => {
-          value.innerHTML = parseInt(value.innerHTML) - 1;
-        });
-        </script>
+        <input type="text" id="search" placeholder="Search...">
+        <button id="searchButton">Search</button>
       </div>
-      <div>
-        <h1>5th</h1>
-
-        <!--5.1-->
-        <p>The countdown timer is: <span id="timer"></span></p>
-        </div>
-        <script>
-        const container = document.getElementById("container");
-        const timer = document.getElementById("timer");
-        var timeDiff = 0;
-        // Create a timer function that updates the countdown timer every millisecond
-        const timerFunc = () => {
-          timer.innerHTML = timeDiff;
-          timeDiff++;
-        };
-        
-        // Start the countdown timer after the DOM is loaded
-        setInterval(timerFunc, 1);
-        </script>
-      </div>
-      <div>
-        <h1>6th</h1>
-
-        <!--6.1-->
-        <button id="btn-mod" onclick="noDark ? toDark() : toLight()">Dark Mode</button>
+      <div id="data"></div>
       <script>
-        var noDark = true
+        let Data2 = [
+          {
+            id: 1,
+            name: "A",
+            desc: "Hello I'm from data number one.",
+            date: "2023-06-22T02:12:00"
+          },
+          {
+            id: 2,
+            name: "B",
+            desc: "Hello I'm from data number two.",
+            date: "2023-06-22T04:57:00Z"
+          }
+        ];
 
-        function toDark() {
-          document.body.style.backgroundColor = "black"
-          document.body.style.color = "white"
-          noDark = !noDark
-          document.getElementById("btn-mod").innerText = "Light Mode"
-        }
+        let searchInput = document.getElementById("search");
+        let searchButton = document.getElementById("searchButton");
+        let dataElement = document.getElementById("data");
 
-        function toLight() {
-          document.body.style.backgroundColor = "white"
-          document.body.style.color = "black"
-          noDark = !noDark
-          document.getElementById("btn-mod").innerText = "Dark Mode"
-        }
-      </script>
-      </div>
-      <div>
-        <h1>7th</h1>
-
-        <!--7.1-->
-        <div>
-          <div id="btns"></div>
-          <div id="out6"></div>
-          <script>
-            let Data = [
-              {
-                id: 1,
-                name: "A",
-                desc: "Hello I'm from data number one.",
-                date: "2023-06-22T02:12:00"
-              },
-              {
-                id: 2,
-                name: "B",
-                desc: "Hello I'm from data number two.",
-                date: "2023-06-22T04:57:00Z"
-              }
-            ];
-        
-            const ascendingButton1 = document.createElement("button");
-            ascendingButton1.textContent = "Ascending by name";
-            ascendingButton1.addEventListener("click", () => {
-              Data.sort((a, b) => a.id - b.id);
-              const div = document.getElementById("out6");
-              div.innerHTML = Data.map(item => `
-                <p id="item-${item.id}">
-                  id : ${item.id}
-                  name: ${item.name}
-                  description: ${item.desc}
-                  date : ${new Date(item.date)}
-                </p>
-              `).join("");
+        searchInput.addEventListener("keydown", function (event) {
+          if (event.keyCode === 13) {
+            let searchTerm = searchInput.value.toLowerCase();
+            let filteredData = Data2.filter(function (data) {
+              return data.name.toLowerCase().includes(searchTerm) ||
+                data.id.toString().toLowerCase().includes(searchTerm) ||
+                data.desc.toLowerCase().includes(searchTerm) ||
+                data.date.toLowerCase().includes(searchTerm);
             });
-        
-            document.getElementById("btns").appendChild(ascendingButton1);
-        
-            const descendingButton1 = document.createElement("button");
-            descendingButton1.textContent = "Descending by name";
-            descendingButton1.addEventListener("click", () => {
-              Data.sort((a, b) => b.id - a.id);
-              const out6 = document.getElementById("out6");
-              out6.innerHTML = Data.map(item => `
-                <p id="item-${item.id}">
-                  id : ${item.id}
-                  name: ${item.name}
-                  description: ${item.desc}
-                  date : ${new Date(item.date)}
-                </p>
-              `).join("");
-            });
-        
-            document.getElementById("btns").appendChild(descendingButton1);
 
-            const ascendingButton2 = document.createElement("button");
-            ascendingButton2.textContent = "Ascending by date";
-            ascendingButton2.addEventListener("click", () => {
-              Data.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
-              const div = document.getElementById("out6");
-              div.innerHTML = Data.map(item => `
-                <p id="item-${item.id}">
-                  id : ${item.id}
-                  name: ${item.name}
-                  description: ${item.desc}
-                  date : ${new Date(item.date)}
-                </p>
-              `).join("");
-            });
-        
-            document.getElementById("btns").appendChild(ascendingButton2);
-
-            const descendingButton2 = document.createElement("button");
-            descendingButton2.textContent = "Descending by date";
-            descendingButton2.addEventListener("click", () => {
-              Data.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
-              const out6 = document.getElementById("out6");
-              out6.innerHTML = Data.map(item => `
-                <p id="item-${item.id}">
-                  id : ${item.id}
-                  name: ${item.name}
-                  description: ${item.desc}
-                  date : ${new Date(item.date)}
-                </p>
-              `).join("");
-            });
-        
-            document.getElementById("btns").appendChild(descendingButton2);
-          </script>
-      </div>
-      <div>
-        <h1>8th</h1>
-
-        <!--8.1-->
-        <div>
-          <input type="text" id="search" placeholder="Search...">
-          <button id="searchButton">Search</button>
-        </div>
-        <div id="data"></div>
-        <script>
-          let Data2 = [
-            {
-              id: 1,
-              name: "A",
-              desc: "Hello I'm from data number one.",
-              date: "2023-06-22T02:12:00"
-            },
-            {
-              id: 2,
-              name: "B",
-              desc: "Hello I'm from data number two.",
-              date: "2023-06-22T04:57:00Z"
-            }
-          ];
-        
-          let searchInput = document.getElementById("search");
-          let searchButton = document.getElementById("searchButton");
-          let dataElement = document.getElementById("data");
-        
-          searchInput.addEventListener("keydown", function(event) {
-            if (event.keyCode === 13) {
-              let searchTerm = searchInput.value.toLowerCase();
-              let filteredData = Data2.filter(function(data) {
-                return data.name.toLowerCase().includes(searchTerm) ||
-                  data.id.toString().toLowerCase().includes(searchTerm) ||
-                  data.desc.toLowerCase().includes(searchTerm) ||
-                  data.date.toLowerCase().includes(searchTerm);
-              });
-        
-              dataElement.innerHTML = "";
-              filteredData.forEach(function(data) {
-                let li = document.createElement("li");
-                li.innerHTML = `
+            dataElement.innerHTML = "";
+            filteredData.forEach(function (data) {
+              let li = document.createElement("li");
+              li.innerHTML = `
                   <strong>ID:</strong> ${data.id}
                   <br>
                   <strong>Name:</strong> ${data.name}
@@ -345,24 +346,24 @@ print(factorial(5))</code></pre>
                   <br>
                   <strong>Date:</strong> ${data.date}
                 `;
-                dataElement.appendChild(li);
-              });
-            }
-          });
-        
-          searchButton.addEventListener("click", function() {
-            let searchTerm = searchInput.value.toLowerCase();
-            let filteredData = Data2.filter(function(data) {
-              return data.name.toLowerCase().includes(searchTerm) ||
-                data.id.toString().toLowerCase().includes(searchTerm) ||
-                data.desc.toLowerCase().includes(searchTerm) ||
-                data.date.toLowerCase().includes(searchTerm);
+              dataElement.appendChild(li);
             });
-        
-            dataElement.innerHTML = "";
-            filteredData.forEach(function(data) {
-              let li = document.createElement("li");
-              li.innerHTML = `
+          }
+        });
+
+        searchButton.addEventListener("click", function () {
+          let searchTerm = searchInput.value.toLowerCase();
+          let filteredData = Data2.filter(function (data) {
+            return data.name.toLowerCase().includes(searchTerm) ||
+              data.id.toString().toLowerCase().includes(searchTerm) ||
+              data.desc.toLowerCase().includes(searchTerm) ||
+              data.date.toLowerCase().includes(searchTerm);
+          });
+
+          dataElement.innerHTML = "";
+          filteredData.forEach(function (data) {
+            let li = document.createElement("li");
+            li.innerHTML = `
                 <strong>ID:</strong> ${data.id}
                 <br>
                 <strong>Name:</strong> ${data.name}
@@ -371,224 +372,225 @@ print(factorial(5))</code></pre>
                 <br>
                 <strong>Date:</strong> ${data.date}
               `;
-              dataElement.appendChild(li);
-            });
+            dataElement.appendChild(li);
           });
-        </script>
-      </div>
-      <div>
-        <h1>9th</h1>
-        <!--9.1-->
-        <div id="lis"></div>
-        <script>
-          let data = [{
-            "id": 1,
-            "nam": "A",
-            "lab": ["A", "B"]
-          }, {
-            "id": 2,
-            "nam": "B",
-            "lab": ["A", "C"]
-          }];
+        });
+      </script>
+    </div>
+    <div>
+      <h1>9th</h1>
+      <!--9.1-->
+      <div id="lis"></div>
+      <script>
+        let data = [{
+          "id": 1,
+          "nam": "A",
+          "lab": ["A", "B"]
+        }, {
+          "id": 2,
+          "nam": "B",
+          "lab": ["A", "C"]
+        }];
 
-          let uniqueStrings = [...new Set(data.flatMap(obj => obj.lab))];
+        let uniqueStrings = [...new Set(data.flatMap(obj => obj.lab))];
 
-          let ul = document.createElement("ul");
-          ul.innerHTML = uniqueStrings.map(str => `<li>${str}</li>`).join("");
+        let ul = document.createElement("ul");
+        ul.innerHTML = uniqueStrings.map(str => `<li>${str}</li>`).join("");
 
-          document.getElementById("lis").appendChild(ul);
-        </script>
-      </div>
-      <div>
-        <h1>10th</h1>
-        <!--10.1-->
-        <input type="number" min="1" max="10" id="inputNumber0">
-        <p id="out11"></p>
-        
-        <script>
+        document.getElementById("lis").appendChild(ul);
+      </script>
+    </div>
+    <div>
+      <h1>10th</h1>
+      <!--10.1-->
+      <input type="number" min="1" max="10" id="inputNumber0">
+      <p id="out11"></p>
+
+      <script>
         const inputNumber0 = document.getElementById("inputNumber0");
         const output0 = document.getElementById("out11");
-        
+
         inputNumber0.addEventListener("input", updateValue1);
-        
+
         function updateValue1() {
           const value1 = inputNumber0.value;
           output0.innerHTML = value1;
         }
-        </script>
-        <!--10.2-->
-        <input type="number" min="1" max="10" id="inputNumber">
-        <input type="range" min="1" max="10" id="inputRange">
-        <p id="out8"></p>
-        
-        <script>
-          const inputNumber = document.getElementById("inputNumber");
-          const inputRange = document.getElementById("inputRange");
-          const output = document.getElementById("out8");
-        
-          inputNumber.addEventListener("input", updateValue);
-          inputRange.addEventListener("input", updateValue);
-        
-          function updateValue() {
-            const value = inputNumber.value || inputRange.value;
-            inputNumber.value = value;
-            output.textContent = value;
-          }
-        
-          inputNumber.addEventListener("change", () => {
-            inputRange.value = inputNumber.value;
-            output.textContent = inputNumber.value;
-          });
-        
-          inputRange.addEventListener("input", () => {
-            inputNumber.value = inputRange.value;
-            output.textContent = inputRange.value;
-          });
-        </script>
-        <!--10.3-->
-        <input type="range" min="0" max="100" id="inputRange2">
-        <input type="number" min="0" id="inputMin" placeholder="Min Value">
-        <input type="number" min="0" id="inputMax" placeholder="Max Value">
-        
-        <script>
-          const inputRange2 = document.getElementById("inputRange2");
-          const inputMin = document.getElementById("inputMin");
-          const inputMax = document.getElementById("inputMax");
-        
-          inputMin.addEventListener("input", updateValues);
-          inputMax.addEventListener("input", updateValues);
-        
-          function updateValues() {
-            const minValue = parseInt(inputMin.value) || 0;
-            const maxValue = parseInt(inputMax.value) || 0;
-        
-            inputRange2.min = minValue;
-            inputRange2.max = maxValue;
-        
-            if (inputRange2.value < minValue) {
-              inputRange2.value = minValue;
-            }
-        
-            if (inputRange2.value > maxValue) {
-              inputRange2.value = maxValue;
-            }
-          }
-        
-          inputRange2.addEventListener("input", () => {
-            inputMin.value = inputRange2.min;
-            inputMax.value = inputRange2.max;
-          });
-        </script>
-      </div>
-      <div>
-        <h1>11th</h1>
-        <!--11.1-->
-        <div id="out12"></div>
-        <script>
-          const data2 = [
-            {
-              "id": 1,
-              "nam": "A",
-              "lab": ["A", "B"]
-            },
-            {
-              "id": 2,
-              "nam": "B",
-              "lab": ["A", "C"]
-            }
-          ];
-        
-          const uniqueStrings2 = [];
-        
-          for (let i = 0; i < data2.length; i++) {
-            for (let j = 0; j < data2[i].lab.length; j++) {
-              if (!uniqueStrings2.includes(data2[i].lab[j])) {
-                uniqueStrings2.push(data2[i].lab[j]);
-              }
-            }
-          }
-        
-          const out12 = document.getElementById("out12");
-          const buttons = document.createElement("div");
-        
-          for (let string of uniqueStrings2) {
-            const button = document.createElement("button");
-            button.innerHTML = string;
-            button.addEventListener("click", () => {
-              const filteredData = data2.filter((item) => item.lab.includes(string));
-              let list = document.createElement("ul");
-              for (let item of filteredData) {
-                const listItem = document.createElement("li");
-                listItem.textContent = item.nam;
-                list.appendChild(listItem);
-              }
-              const existingList = out12.querySelector("ul");
-              if (existingList) {
-                out12.replaceChild(list, existingList);
-              } else {
-                out12.appendChild(list);
-              }
-            });
-        
-            buttons.appendChild(button);
-          }
-          out12.appendChild(buttons);
       </script>
-      </div>
-      <div>
-        <!--11.2-->
-        <script>
-          const data3 = [{
-  "id": 1,
-  "nam": "A",
-  "lab": ["A", "B"]
-}, {
-  "id": 2,
-  "nam": "B",
-  "lab": ["A", "C"]
-}];
+      <!--10.2-->
+      <input type="number" min="1" max="10" id="inputNumber">
+      <input type="range" min="1" max="10" id="inputRange">
+      <p id="out8"></p>
 
-const uniqueStrings3 = [];
+      <script>
+        const inputNumber = document.getElementById("inputNumber");
+        const inputRange = document.getElementById("inputRange");
+        const output = document.getElementById("out8");
 
-for (let i = 0; i < data3.length; i++) {
-  for (let j = 0; j < data3[i].lab.length; j++) {
-    if (!uniqueStrings3.includes(data3[i].lab[j])) {
-      uniqueStrings3.push(data3[i].lab[j]);
-    }
-  }
-}
+        inputNumber.addEventListener("input", updateValue);
+        inputRange.addEventListener("input", updateValue);
 
-const buttons3 = document.querySelector("div");
-
-let currentList = document.createElement("ul");
-
-for (let string of uniqueStrings3) {
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.value = string;
-  checkbox.addEventListener("click", () => {
-    currentList.innerHTML = "";
-    const filteredData = data3.filter((item) => {
-      for (let checkedString of buttons3.querySelectorAll("input[type='checkbox']:checked")) {
-        if (item.lab.includes(checkedString.value)) {
-          return true;
+        function updateValue() {
+          const value = inputNumber.value || inputRange.value;
+          inputNumber.value = value;
+          output.textContent = value;
         }
-      }
-      return false;
-    });
 
-    for (let item of filteredData) {
-      currentList.innerHTML += `<li>${item.nam}</li>`;
-    }
+        inputNumber.addEventListener("change", () => {
+          inputRange.value = inputNumber.value;
+          output.textContent = inputNumber.value;
+        });
 
-    buttons3.replaceChild(currentList, buttons3.firstChild);
-  });
+        inputRange.addEventListener("input", () => {
+          inputNumber.value = inputRange.value;
+          output.textContent = inputRange.value;
+        });
+      </script>
+      <!--10.3-->
+      <input type="range" min="0" max="100" id="inputRange2">
+      <input type="number" min="0" id="inputMin" placeholder="Min Value">
+      <input type="number" min="0" id="inputMax" placeholder="Max Value">
 
-  buttons3.appendChild(checkbox);
-}
+      <script>
+        const inputRange2 = document.getElementById("inputRange2");
+        const inputMin = document.getElementById("inputMin");
+        const inputMax = document.getElementById("inputMax");
 
-document.getElementById("out12").appendChild(buttons3);
-        </script>
-      </div>
-  </body>
+        inputMin.addEventListener("input", updateValues);
+        inputMax.addEventListener("input", updateValues);
+
+        function updateValues() {
+          const minValue = parseInt(inputMin.value) || 0;
+          const maxValue = parseInt(inputMax.value) || 0;
+
+          inputRange2.min = minValue;
+          inputRange2.max = maxValue;
+
+          if (inputRange2.value < minValue) {
+            inputRange2.value = minValue;
+          }
+
+          if (inputRange2.value > maxValue) {
+            inputRange2.value = maxValue;
+          }
+        }
+
+        inputRange2.addEventListener("input", () => {
+          inputMin.value = inputRange2.min;
+          inputMax.value = inputRange2.max;
+        });
+      </script>
+    </div>
+    <div>
+      <h1>11th</h1>
+      <!--11.1-->
+      <div id="out12"></div>
+      <script>
+        const data2 = [
+          {
+            "id": 1,
+            "nam": "A",
+            "lab": ["A", "B"]
+          },
+          {
+            "id": 2,
+            "nam": "B",
+            "lab": ["A", "C"]
+          }
+        ];
+
+        const uniqueStrings2 = [];
+
+        for (let i = 0; i < data2.length; i++) {
+          for (let j = 0; j < data2[i].lab.length; j++) {
+            if (!uniqueStrings2.includes(data2[i].lab[j])) {
+              uniqueStrings2.push(data2[i].lab[j]);
+            }
+          }
+        }
+
+        const out12 = document.getElementById("out12");
+        const buttons = document.createElement("div");
+
+        for (let string of uniqueStrings2) {
+          const button = document.createElement("button");
+          button.innerHTML = string;
+          button.addEventListener("click", () => {
+            const filteredData = data2.filter((item) => item.lab.includes(string));
+            let list = document.createElement("ul");
+            for (let item of filteredData) {
+              const listItem = document.createElement("li");
+              listItem.textContent = item.nam;
+              list.appendChild(listItem);
+            }
+            const existingList = out12.querySelector("ul");
+            if (existingList) {
+              out12.replaceChild(list, existingList);
+            } else {
+              out12.appendChild(list);
+            }
+          });
+
+          buttons.appendChild(button);
+        }
+        out12.appendChild(buttons);
+      </script>
+    </div>
+    <div>
+      <!--11.2-->
+      <div id="out13"></div>
+      <script>
+        const data3 = [
+          {
+            "id": 1,
+            "nam": "A",
+            "lab": ["A", "B"]
+          },
+          {
+            "id": 2,
+            "nam": "B",
+            "lab": ["A", "C"]
+          }
+        ];
+
+        const uniqueStrings3 = [];
+
+        for (let i = 0; i < data3.length; i++) {
+          for (let j = 0; j < data3[i].lab.length; j++) {
+            if (!uniqueStrings3.includes(data3[i].lab[j])) {
+              uniqueStrings3.push(data3[i].lab[j]);
+            }
+          }
+        }
+
+        const out13 = document.getElementById("out13");
+        const buttons2 = document.createElement("div");
+
+        for (let string of uniqueStrings3) {
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.value = string;
+          checkbox.addEventListener("click", () => {
+            const filteredData = data3.filter((item) => item.lab.includes(checkbox.value));
+            let list = document.createElement("ul");
+            for (let item of filteredData) {
+              const listItem = document.createElement("li");
+              listItem.textContent = item.nam;
+              list.appendChild(listItem);
+            }
+            const existingList = out13.querySelector("ul");
+            if (existingList) {
+              out13.replaceChild(list, existingList);
+            } else {
+              out13.appendChild(list);
+            }
+          });
+
+          buttons2.appendChild(checkbox);
+        }
+        out13.appendChild(buttons2);
+      </script>
+    </div>
+</body>
+
 </html>
