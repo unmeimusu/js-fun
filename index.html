@@ -26,7 +26,31 @@
       </p>
     <![endif]-->
   <div>
-    <h1 id="id214">1st</h1>
+
+    <h1>0</h1>
+    
+    <div style="height: 1500px;">
+      <div style="height: 100px; width: 100px; text-align: center;">
+        This text is centered within the div.
+      </div>
+      <div style="height: 100px; width: 100px; display: block; width: 100px; margin: 0 auto;">
+          This div is centered horizontally if has a width.
+      </div>
+      <div style="height: 100px; width: 100px; display: flex; justify-content: center; align-items: center;">
+        This div is centered both horizontally and vertically.
+      </div>
+      <div style="height: 100px; width: 100px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        This div is centered both horizontally and vertically, relative to its parent container.
+      </div>
+      <div style="height: 100px; width: 100px; display: grid; place-items: center;">
+        This div is centered horizontally with grid.
+      </div>
+      <div style="height: 100px; width: 100px; display: grid; place-content: center;">
+        This div is centered both horizontally and vertically with grid.
+      </div>
+    </div>  
+
+    <h1>1st</h1>
 
     <!--1.1-->
     <input type="text" id="input1" onkeydown="showKeyPressedKey()" />
